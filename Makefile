@@ -20,13 +20,16 @@ OUTPUT_FILES+=${SRC_FILE_NAME:S/${POSTS_DIR}/${.OBJDIR}/:S/.md/.html/}
 ${SRC_FILE_NAME:S/${POSTS_DIR}/${.OBJDIR}/:S/.md/.html/}: ${SRC_FILE_NAME}
 	@echo "Making: $? -> $@ (${SRC_FILE_NAME:C/.*\.//})"
 
-	sed 's|TITLE|$*|' ${HEADER} > $@
 .	if "${SRC_FILE_NAME:C/.*\.//}" == "md"
-	${PERL} ${MD} < $? >> $@
+	@sed 's|TITLE|$*|' ${HEADER} > $@
+	@${PERL} ${MD} < $? >> $@
+	@cat ${FOOTER} >> $@
+.	elif "${SRC_FILE_NAME:C/.*\.//}" == "html"
+	@sed 's|TITLE|$*|' ${HEADER} > $@
+	@cat $? >> $@
+	@cat ${FOOTER} >> $@
 .	else
-	cat $? >> $@
 .	endif
-	cat ${FOOTER} >> $@
 
 .endfor
 
