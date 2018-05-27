@@ -30,4 +30,7 @@ ${src_name:S/${POSTS_DIR}/${.OBJDIR}/:S/.md/.html/}: ${src_name}
 
 .endfor
 
+clean:
+	rm -v ${.OBJDIR}/* 2>/dev/null
+
 .MAIN: ${OUTPUT_FILES}
