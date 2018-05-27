@@ -30,6 +30,7 @@ ${SRC_FILE_NAME:S/${POSTS_DIR}/${.OBJDIR}/:S/.md/.html/}: ${SRC_FILE_NAME}
 	@cat $? >> $@
 	@cat ${FOOTER} >> $@
 .	else
+	@cp $? -> $@
 .	endif
 
 .endfor
