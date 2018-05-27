@@ -15,13 +15,13 @@ HEADER=_header.html
 FOOTER=_footer.html
 
 OUTPUT_FILES=
-.for src_name in ${SRC_FILES}
-OUTPUT_FILES+=${src_name:S/${POSTS_DIR}/${.OBJDIR}/:S/.md/.html/}
-${src_name:S/${POSTS_DIR}/${.OBJDIR}/:S/.md/.html/}: ${src_name}
-	@echo "Making: $? -> $@ (${src_name:C/.*\.//})"
+.for SRC_FILE_NAME in ${SRC_FILES}
+OUTPUT_FILES+=${SRC_FILE_NAME:S/${POSTS_DIR}/${.OBJDIR}/:S/.md/.html/}
+${SRC_FILE_NAME:S/${POSTS_DIR}/${.OBJDIR}/:S/.md/.html/}: ${SRC_FILE_NAME}
+	@echo "Making: $? -> $@ (${SRC_FILE_NAME:C/.*\.//})"
 
 	sed 's|TITLE|$*|' ${HEADER} > $@
-.	if "${src_name:C/.*\.//}" == "md"
+.	if "${SRC_FILE_NAME:C/.*\.//}" == "md"
 	${PERL} ${MD} < $? >> $@
 .	else
 	cat $? >> $@
