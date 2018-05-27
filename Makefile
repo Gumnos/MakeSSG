@@ -1,6 +1,3 @@
-INPUT_EXTENSIONS=.md .html
-
-.SUFFIXES: ${INPUT_EXTENSIONS} .html
 .PHONY: clean
 
 POSTS_DIR=${CWD}posts
