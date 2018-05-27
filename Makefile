@@ -25,10 +25,12 @@ ${SRC_FILE_NAME:S/${POSTS_DIR}/${.OBJDIR}/:S/.md/.html/}: ${SRC_FILE_NAME}
 	@sed 's|TITLE|$*|' ${HEADER} > $@
 	@${PERL} ${MD} < $? >> $@
 	@cat ${FOOTER} >> $@
+
 .	elif "${SRC_FILE_NAME:C/.*\.//}" == "html"
 	@sed 's|TITLE|$*|' ${HEADER} > $@
 	@cat $? >> $@
 	@cat ${FOOTER} >> $@
+
 .	else
 	@cp $? -> $@
 .	endif
