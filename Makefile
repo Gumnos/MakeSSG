@@ -18,7 +18,8 @@ OUTPUT_FILES=
 .for SRC_FILE_NAME in ${SRC_FILES}
 OUTPUT_FILES+=${SRC_FILE_NAME:S/${POSTS_DIR}/${.OBJDIR}/:S/.md/.html/}
 ${SRC_FILE_NAME:S/${POSTS_DIR}/${.OBJDIR}/:S/.md/.html/}: ${SRC_FILE_NAME}
-	@echo "Making: $? -> $@ (${SRC_FILE_NAME:C/.*\.//})"
+	@echo "Making: $? -> $@"
+	@mkdir -p ${@:C/[^\/]*$//}
 
 .	if "${SRC_FILE_NAME:C/.*\.//}" == "md"
 	@sed 's|TITLE|$*|' ${HEADER} > $@
