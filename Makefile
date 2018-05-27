@@ -34,6 +34,12 @@ ${SRC_FILE_NAME:S/${POSTS_DIR}/${.OBJDIR}/:S/.md/.html/}: ${SRC_FILE_NAME}
 .endfor
 
 clean:
-	-rm -v ${.OBJDIR}/* 2>/dev/null
+	echo ${.OBJDIR}
+.	if "${.OBJDIR}" == ""
+	@echo "Target .OBJDIR is set to empty. Cowardly failing!"
+	@false
+.	else
+	-echo rm -vr ${.OBJDIR}/* 2>/dev/null
+.	endif
 
 .MAIN: ${OUTPUT_FILES}
