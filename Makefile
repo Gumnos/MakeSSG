@@ -9,13 +9,13 @@ POSTS_DIR=${CWD}posts
 PERL=/usr/bin/perl
 MD=Markdown_1.0.1/Markdown.pl
 
-INPUT_FILES!=find ${POSTS_DIR} -type f 2>/dev/null || true
+SRC_FILES!=find ${POSTS_DIR} -type f 2>/dev/null || true
 
 HEADER=_header.html
 FOOTER=_footer.html
 
 OUTPUT_FILES=
-.for src_name in ${INPUT_FILES}
+.for src_name in ${SRC_FILES}
 OUTPUT_FILES+=${src_name:S/${POSTS_DIR}/${.OBJDIR}/:S/.md/.html/}
 ${src_name:S/${POSTS_DIR}/${.OBJDIR}/:S/.md/.html/}: ${src_name}
 	@echo "Making: $? -> $@ (${src_name:C/.*\.//})"
