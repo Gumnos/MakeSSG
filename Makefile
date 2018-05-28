@@ -37,6 +37,7 @@ ${SRC_FILE_NAME:S/${POSTS_DIR}/${.OBJDIR}/:S/.md/.html/}: ${SRC_FILE_NAME}
 
 dirs:
 	@mkdir -p ${POSTS_DIR} ${.OBJDIR}
+	@echo "Hello world" > ${POSTS_DIR}/hello.md
 
 clean:
 .	if "${.OBJDIR}" == ""
