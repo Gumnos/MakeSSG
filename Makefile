@@ -1,4 +1,4 @@
-.PHONY: clean
+.PHONY: clean dirs
 
 POSTS_DIR=${CWD}posts
 .OBJDIR=${CWD}output
@@ -33,6 +33,9 @@ ${SRC_FILE_NAME:S/${POSTS_DIR}/${.OBJDIR}/:S/.md/.html/}: ${SRC_FILE_NAME}
 .	endif
 
 .endfor
+
+dirs:
+	@mkdir -p ${POSTS_DIR} ${.OBJDIR}
 
 clean:
 .	if "${.OBJDIR}" == ""
