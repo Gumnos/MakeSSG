@@ -30,7 +30,7 @@ It should copy the directory structure so you can create categories
 by creating sub-directories in the `posts/` directory.
 
 Any non-`.html`, non-`.md` files get copied verbatim to the
-`output/` folder so this create assets (images, CSS, JS) if desired.
+`output/` folder so this creates assets (images, CSS, JS) if desired.
 
 The header is stored in `_header.html`
 and the footer stored unsurprisingly in `_footer.html`.
