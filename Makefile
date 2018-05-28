@@ -3,7 +3,8 @@
 POSTS_DIR=${CWD}posts
 .OBJDIR=${CWD}output
 
-PERL=/usr/bin/perl
+
+PERL!=which perl
 MD=Markdown_1.0.1/Markdown.pl
 
 SRC_FILES!=find ${POSTS_DIR} -type f 2>/dev/null || true
