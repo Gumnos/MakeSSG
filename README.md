@@ -55,6 +55,8 @@ Todo
 
 - Create an RSS feed
 
+- Create a `deploy` target to `rsync` data to a server location
+
 - Handle tags and a tag-database generation scheme
 
 - Create smarter HTML "title" elements
