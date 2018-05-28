@@ -13,14 +13,14 @@ This will create a `posts` directory and an `output` directory.
 
 It also creates a sample `hello.md` post as a starting-point.
 
-Once you have posts, simply invoke `make` to generate the output.
-
 Create either raw HTML post content (`.html`) or Markdown (`.md`).
 
 To create Markdown, you'll need
 [` Markdown.pl`](http://daringfireball.net/projects/downloads/Markdown_1.0.1.zip)
 (from https://daringfireball.net/projects/markdown/ )
 unzipped in the project directory.
+
+Once you have posts, simply invoke `make` to generate the output.
 
 This is largely an experiment.
 It's not fancy.
