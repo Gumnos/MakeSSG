@@ -11,6 +11,10 @@ To create the initial directory structure, issue
 
 This will create a `posts` directory and an `output` directory.
 
+It also creates a sample `hello.md` post as a starting-point.
+
+Once you have posts, simply invoke `make` to generate the output.
+
 Create either raw HTML post content (`.html`) or Markdown (`.md`).
 
 To create Markdown, you'll need
