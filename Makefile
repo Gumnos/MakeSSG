@@ -49,7 +49,7 @@ clean:
 	-rm -vr ${.OBJDIR}/* 2>/dev/null
 .	endif
 
-deploy:
+deploy: ${OUTPUT_FILES}
 .	if "${DEPLOY_DEST}" == ""
 	@echo "Must specify DEPLOY_DEST=rsync_path"; false
 .	elif "${RSYNC}" == ""
