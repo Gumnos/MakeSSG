@@ -1,9 +1,11 @@
-.PHONY: clean dirs
+.PHONY: clean dirs deploy
 
 POSTS_DIR=${CWD}posts
 .OBJDIR=${CWD}output
+DEPLOY_DEST=
 
-
+RSYNC!=which rsync
+RSYNC_FLAGS=
 PERL!=which perl
 MD=Markdown_1.0.1/Markdown.pl
 
@@ -45,6 +47,16 @@ clean:
 	@false
 .	else
 	-rm -vr ${.OBJDIR}/* 2>/dev/null
+.	endif
+
+deploy:
+.	if "${DEPLOY_DEST}" == ""
+	@echo "Must specify DEPLOY_DEST=rsync_path"; false
+.	elif "${RSYNC}" == ""
+	@echo "Unable to find rsync"; false
+.	else
+	@echo "Deploying to ${DEPLOY_DEST}"
+	@rsync -avr ${RSYNC_FLAGS} ${.OBJDIR}/ ${DEPLOY_DEST}/
 .	endif
 
 .MAIN: ${OUTPUT_FILES}
