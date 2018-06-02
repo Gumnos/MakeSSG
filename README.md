@@ -41,6 +41,10 @@ and the footer stored unsurprisingly in `_footer.html`.
 Modifying these allows inclusion of additional CSS, JavaScript,
 meta information, etc.
 
+To deploy, ensure that `rsync` can be found in your `$PATH` and invoke
+
+    make deploy DEPLOY_DEST=user@example.com:/path/to/www/root/
+
 Known Bugs
 ==========
 
@@ -54,8 +58,6 @@ Todo
 - Generate an index page
 
 - Create an RSS feed
-
-- Create a `deploy` target to `rsync` data to a server location
 
 - Handle tags and a tag-database generation scheme
 
